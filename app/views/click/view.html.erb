@@ -1,0 +1,30 @@
+<script>
+    var myApp = angular.module('counter', []);
+
+myApp.controller('Controller', function Controller($scope) {
+  $scope.num = <%= @u_price %>;
+  $scope.count = <%= @f_price %>;
+  $scope.up = function(){
+    $scope.count += $scope.num;
+  }
+
+  $scope.$watch('inputVal', function(val) {
+    if (val) {
+      $scope.num = val;
+    }
+  });
+}); 
+
+</script>
+
+<div ng-app="counter" ng-controller="Controller" class="counter">
+  <h2>Present Price:</h2>
+  <h2>{{count}}</h2></br></br>
+  <h1>Start Price:</h1>
+  <h1><%= @f_price %></h1>
+  <p>좋아요</p>
+  <button ng-click="up()">+<span class="glyphicon glyphicon-heart" aria-hidden="true">{{<%= @u_price %>}}</span></button>
+  <br /><br />
+
+
+</div>
